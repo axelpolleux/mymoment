@@ -1,11 +1,12 @@
 "use client"
 import {useState} from "react";
+import "./app.css"
 
 export default function Home() {
-    const [data, setData] = useState("String de plage");
     return (
         <main>
-            <p>{data}</p>
+            <section>
+            </section>
         </main>
     );
 }
