@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  allowedDevOrigins: ['https://jsonplaceholder.typicode.com/photos/']
 };
 
 export default nextConfig;
