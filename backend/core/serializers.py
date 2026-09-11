@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
+from .models import CustomUser
 from .models import Sound
 
 
 class UserSerializer(serializers.Serializer):
     class Meta:
-        model = User
+        model = CustomUser
         fields = ["username"]
 
 
