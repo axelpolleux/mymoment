@@ -131,4 +131,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000"
 ]
 
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
+
 AUTH_USER_MODEL = "core.CustomUser"

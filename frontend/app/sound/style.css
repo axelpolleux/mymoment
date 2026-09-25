@@ -1,6 +1,5 @@
 .sound-list {
     display: grid;
-    gap: 30px;
 }
 
 .sound-card {
