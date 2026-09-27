@@ -1,7 +1,9 @@
 "use client"
 
 import "./style.css"
+import '../app.css'
 import {useState, useEffect, useRef} from "react";
+import {Trash} from "@getpapillon/papicons"
 
 function ListSounds(urlAPI: string) {
 	const [data, setData] = useState([])
@@ -26,25 +28,43 @@ export default function SoundPage() {
 		AudioSource.play()
 	}
 
-	async function PostSound(e:SubmitEvent){
+	async function PostSound(e: SubmitEvent) {
 		e.preventDefault()
 		const form = e.target
 		const data = new FormData(form)
 
-		fetch (urlAPI, {
+		fetch(urlAPI, {
 			method: "POST",
 			body: data,
 		})
 		alert(`${data.get("title")} posted`)
 	}
+
+	async function DeleteSound(item) {
+		await fetch(`${urlAPI}${item.id}/`, {method: 'DELETE'})
+	}
+
 	return (
 		<div>
-			<form onSubmit={PostSound}>
-				<input type={"text"} name={"title"}/>
-				<input type={"text"} name={"description"}/>
-				<input type={"file"} name={"audio"}/>
-				<input type={"hidden"} name={"uploader"} value={1}/>
-				<button type={"submit"}>Envoyer</button>
+			<form className="form m-15" onSubmit={PostSound}>
+				<div className="flex-column">
+					<label>Title </label></div>
+				<div className="inputForm">
+					<input placeholder="Enter your title" className="input" type="text" name={"title"}/>
+				</div>
+
+				<div className="flex-column">
+					<label>Description </label></div>
+				<div className="inputForm">
+					<input placeholder="Enter your description" className="input" type="text" name={"description"}/>
+				</div>
+				<div className="flex-column">
+					<label>File </label></div>
+				<div className="inputForm">
+					<input placeholder="Upload audio file" className="input" type="file" name={"audio"}/>
+				</div>
+				<input value={1} type={"hidden"} name={"uploader"}/>
+				<button className="button-submit">Send</button>
 			</form>
 			<ul className={"sound-list"}>
 				{data.map((item) => (
@@ -55,6 +75,7 @@ export default function SoundPage() {
 						>
 							<p>{item.title}</p>
 						</a>
+						<a onClick={() => DeleteSound(item)} className={"cursor-pointer"}><Trash/></a>
 					</li>
 				))}
 			</ul>

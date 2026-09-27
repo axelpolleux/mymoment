@@ -10,10 +10,9 @@ export function NavigationBar(){
 
 	return (
 		<nav className={"navbar"}>
-			<div className={"logo"}>My Moment</div>
+			<Link href="/" className={"logo"}>Homepage</Link>
 
 			<ul className={"nav-links"}>
-				<li><Link href="/">Homepage</Link></li>
 				<li><Link href="sound/">Sounds</Link></li>
 				<li><Link href="auth/">Authentication</Link></li>
 			</ul>
@@ -21,10 +20,19 @@ export function NavigationBar(){
 	)
 }
 
-export function FooterPart(){
-	return (
-		<>
-			<h1>Footer part</h1>
-		</>
-	)
-}
+export function FooterPart() {
+    return (
+        <footer className="">
+            <div className="">
+                <p className="">
+                    Hello from Angouleme
+                </p>
+            </div>
+            <div className="">
+                <div className="">
+                    <a href="/">My Moment</a> ©2025. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    );
+};

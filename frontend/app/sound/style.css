@@ -12,3 +12,10 @@
 .sound-card p {
     font-family: Garet;
 }
+
+.input:focus {
+    outline: none;
+}
+
+
+
