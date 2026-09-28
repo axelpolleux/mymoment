@@ -10,7 +10,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #ffffff;
+    background-color: lightblue;
     padding: 30px;
     width: 450px;
     border-radius: 20px;
@@ -36,6 +36,7 @@ main {
     height: 50px;
     display: flex;
     align-items: center;
+    background-color: #ffffff;
     padding-left: 10px;
     transition: 0.2s ease-in-out;
 }

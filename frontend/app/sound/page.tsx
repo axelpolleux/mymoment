@@ -46,7 +46,7 @@ export default function SoundPage() {
 
 	return (
 		<div>
-			<form className="form m-15" onSubmit={PostSound}>
+			<form className="add-form form m-15" onSubmit={PostSound}>
 				<div className="flex-column">
 					<label>Title </label></div>
 				<div className="inputForm">
@@ -69,12 +69,11 @@ export default function SoundPage() {
 			<ul className={"sound-list"}>
 				{data.map((item) => (
 					<li key={item.id}>
-						<a
-							className={"sound-card"}
+						<button
 							onClick={() => PlaySound(item.audio)}
 						>
 							<p>{item.title}</p>
-						</a>
+						</button>
 						<a onClick={() => DeleteSound(item)} className={"cursor-pointer"}><Trash/></a>
 					</li>
 				))}
